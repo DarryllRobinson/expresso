@@ -38,11 +38,14 @@ Expresso.createEmployee = employee => {
     },
     body: JSON.stringify({employee: employee})
   };
+  console.log('fetchOptions: ', fetchOptions);
   return fetch(url, fetchOptions).then(response => {
     if (!response.ok) {
+      console.log('error');
       return new Promise(resolve => resolve(null));
     }
     return response.json().then(jsonResponse => {
+      console.log('saved');
       return camelcaseKeys(jsonResponse.employee);
     });
   });

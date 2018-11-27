@@ -155,6 +155,7 @@ class Employee extends Component {
       });
     } else {
       Expresso.createEmployee(this.state.employee).then(employee => {
+        console.log('employee: ', this.state.employee);
         this.props.history.push(`/employees/${employee.id}`);
         this.setState({
           employee: employee,
